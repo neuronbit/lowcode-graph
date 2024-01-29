@@ -1,4 +1,4 @@
-import { ILowCodePluginContext, project } from '@alilc/lowcode-engine';
+import { ILowCodePluginContext } from '@alilc/lowcode-engine';
 import DesignerView from './DesignerView';
 import { rootState } from './items/state';
 import x6Designer, { IDesigner } from './designer';
@@ -6,8 +6,8 @@ import '@antv/x6-react-shape'; // 支持自定义 react 组件
 
 /**
  * plugin X6 designer
- * @param ctx 
- * @returns 
+ * @param ctx
+ * @returns
  */
 const PluginX6Designer = (ctx: ILowCodePluginContext) => {
   return {

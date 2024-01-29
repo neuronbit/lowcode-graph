@@ -2,6 +2,7 @@ import { rootState } from '../items/state';
 import { project, Node as Model } from '@alilc/lowcode-engine';
 import { FunctionExt, Graph, Node, Point, EdgeView, Edge, Cell } from '@antv/x6';
 import { showPorts } from './util';
+import { ILowCodePluginContext } from '@alilc/lowcode-engine';
 
 export const NormalStrokeColor = '#4C6079';
 export const SelectedStrokeColor = '#027AFF'; // 选中边框色
@@ -9,9 +10,19 @@ export const SelectedFillColor = '#C6DEF8'; // 选中填充色
 export const ErrorColor = '#ff5219'; // 红框错误
 
 // 初始化画布事件
-export function initEvents(graph: Graph) {
+export function initEvents(ctx:ILowCodePluginContext, graph: Graph) {
+  console.log('width and height of graph is,', graph.options.width, graph.options.height);
   graph.on('cell:click', ({ e, x, y, cell, view }) => {
-    console.log('position:', x, y);
+    console.log('click of cell:', cell);
+  });
+
+  graph.on('blank:click', ({ e, x, y }) => {
+    const id = project.currentDocument?.root.id;
+    console.log("root id", id)
+
+    project.currentDocument?.selection.select(id);
+
+    ctx.skeleton.hidePanel('logicActionPane');
   });
 
   // 增加 node:added 事件，将 ports 数据更新到 schema 中，便于保存
@@ -20,6 +31,7 @@ export function initEvents(graph: Graph) {
     if (nodeModel) {
       nodeModel.setPropValue('ports', node.getPorts());
     }
+    project.currentDocument?.selection.select(node.id);
   });
 
   graph.on('node:moved', ({ e, x, y, node, view }) => {

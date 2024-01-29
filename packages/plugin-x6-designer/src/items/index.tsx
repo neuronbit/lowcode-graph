@@ -1,9 +1,9 @@
 import React from 'react';
-import { observer } from 'mobx-react';
+import {observer} from 'mobx-react';
 import NodeComponent from './node';
 import EdgeComponent from './edge';
-import { Node, Edge, Graph } from '@antv/x6';
-import { EdgeComponentName, rootState, RootState } from "./state";
+import {Edge, Graph, Node} from '@antv/x6';
+import {rootState} from "./state";
 import './index.less';
 
 interface Props {

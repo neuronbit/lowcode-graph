@@ -2,27 +2,26 @@ import { BlueColor, DeepBlueColor, portR, strokeWidth } from "./const";
 
 export const LceDiamond = {
   inherit: 'polygon',
-  width: 124,
-  height: 70,
+  width: 164,
+  height: 100,
   attrs: {
     body: {
-      stroke: DeepBlueColor,
+      stroke: '#7e0505',
       strokeWidth,
-      points: "0, 35, 62, 0, 124, 35, 62, 70",
-      fill: '#fff',
+      points: "0, 50, 82, 0, 164, 50, 82, 100",
+      fill: '#eecccc',
       rx: 10,
       ry: 10
     },
     text: {
       width: 60,
-      height: 32,
+      height: 70,
       fontSize: 12,
       fill: DeepBlueColor,
-      x: 13,
-      lineHeight: 16,
+      lineHeight: 12,
       textWrap: {
-        width: 50,
-        height: 14,
+        width: 60,
+        height: 70,
         ellipsis: true,  // 文本超出显示范围时，自动添加省略号
         breakWord: true, // 是否截断单词
       }
@@ -84,23 +83,23 @@ export const LceDiamond = {
         },
         zIndex: 99,
       },
-      bottom: {
-        position: 'bottom',
-        attrs: {
-          circle: {
-            r: portR,
-            magnet: true,
-            stroke: BlueColor,
-            strokeWidth: 1,
-            fill: '#fff',
-            style: {
-              visibility: 'hidden',
-              opacity: '1'
-            },
-          },
-        },
-        zIndex: 99,
-      },
+      // bottom: {
+      //   position: 'bottom',
+      //   attrs: {
+      //     circle: {
+      //       r: portR,
+      //       magnet: true,
+      //       stroke: BlueColor,
+      //       strokeWidth: 1,
+      //       fill: '#fff',
+      //       style: {
+      //         visibility: 'hidden',
+      //         opacity: '1'
+      //       },
+      //     },
+      //   },
+      //   zIndex: 99,
+      // },
       left: {
         position: 'left',
         attrs: {
@@ -123,18 +122,32 @@ export const LceDiamond = {
       {
         id: 't',
         group: 'top',
+        args: {
+          dx: 2,
+        }
       },
       {
         id: 'r',
         group: 'right',
+        args: {
+          dx: 2,
+          dy: 2
+        }
       },
-      {
-        id: 'b',
-        group: 'bottom',
-      },
+      // {
+      //   id: 'b',
+      //   group: 'bottom',
+      //   args: {
+      //     dx: 2,
+      //     dy: 2
+      //   }
+      // },
       {
         id: 'l',
         group: 'left',
+        args: {
+          dy: 2
+        }
       },
     ],
   },

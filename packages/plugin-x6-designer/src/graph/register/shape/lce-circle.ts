@@ -12,7 +12,6 @@ export const LceCircle = {
     text: {
       fontSize: 12,
       fill: '#4C6079',
-      x: 10,
     },
   },
   ports: {

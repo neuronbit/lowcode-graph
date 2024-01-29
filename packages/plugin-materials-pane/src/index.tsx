@@ -39,11 +39,11 @@ const PluginMaterialsPane = (ctx: IPublicModelPluginContext) => {
           floatable: true,
           hideTitleBar: false,
           title: "动作库",
-          width: 192,
+          width: 292,
         },
       });
 
-      ctx.skeleton.showPanel('logicActionPane');
+      //ctx.skeleton.showPanel('logicActionPane');
     },
   };
 };
