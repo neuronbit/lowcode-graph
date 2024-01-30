@@ -183,7 +183,6 @@ export function initGraph(container: HTMLElement) {
   // 画布内容居中
   requestAnimationFrame(() => {
     resizeFn();
-    graph.centerContent();
   });
   return graph;
 }
